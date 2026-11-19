@@ -1,0 +1,17 @@
+<Project>
+  <!-- 全プロジェクト共通の設定 -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>1.0.0</Version>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <!-- 配布物に .pdb を別ファイルで残さない（デバッグ情報は DLL/EXE に埋め込む） -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>embedded</DebugType>
+    <!-- ビルドした PC のフォルダ構成を EXE に残さない -->
+    <PathMap>$(MSBuildThisFileDirectory)=.\</PathMap>
+  </PropertyGroup>
+</Project>

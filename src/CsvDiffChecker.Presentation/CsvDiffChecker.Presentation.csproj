@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CsvDiffChecker.Core\CsvDiffChecker.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 状態の書き換えは内部に閉じるが、テストからは確かめられるようにする -->
+    <InternalsVisibleTo Include="CsvDiffChecker.Tests" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

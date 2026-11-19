@@ -1,0 +1,36 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Test
+        run: dotnet test CsvDiffChecker.slnx -c Release --nologo
+
+      - name: Check test spec is up to date
+        run: python scripts/update_test_spec.py --check
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Publish EXE
+        run: dotnet publish src/CsvDiffChecker.App/CsvDiffChecker.App.csproj -c Release -o publish --nologo
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: CsvDiffChecker
+          path: publish/CsvDiffChecker.exe
+          if-no-files-found: error

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>CsvDiffChecker</AssemblyName>
+    <RootNamespace>CsvDiffChecker.App</RootNamespace>
+    <Product>リスト変更点チェッカー</Product>
+    <AssemblyTitle>リスト変更点チェッカー</AssemblyTitle>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+  </PropertyGroup>
+
+  <!-- 配布用: 実行環境（.NET Desktop Runtime）は利用者の PC に入れてもらい、EXE は1ファイルにまとめる。
+       .NET のセキュリティ修正は利用者の PC 側の更新で取り込まれるため、修正のたびに EXE を作り直さなくてよい。 -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CsvDiffChecker.Core\CsvDiffChecker.Core.csproj" />
+    <ProjectReference Include="..\CsvDiffChecker.Presentation\CsvDiffChecker.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

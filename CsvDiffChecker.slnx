@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CsvDiffChecker.App/CsvDiffChecker.App.csproj" />
+    <Project Path="src/CsvDiffChecker.Core/CsvDiffChecker.Core.csproj" />
+    <Project Path="src/CsvDiffChecker.Presentation/CsvDiffChecker.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CsvDiffChecker.Tests/CsvDiffChecker.Tests.csproj" />
+  </Folder>
+</Solution>
